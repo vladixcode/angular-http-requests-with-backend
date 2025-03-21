@@ -19,7 +19,11 @@ app.use((req, res, next) => {
 });
 
 app.get("/places", async (req, res) => {
+  // Deliberate delay
   await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  // Test error response
+  // return res.status(500).json()
 
   const fileContent = await fs.readFile("./data/places.json");
 
