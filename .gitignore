@@ -5,11 +5,14 @@
 /integration/bazel/bazel-*
 *.log
 node_modules/
-backend/node_modules/
 modules/ssr-benchmarks/node_modules/
 build
 coverage
 e2e
+
+# Backend Express Web API
+backend/node_modules/
+backend/data/user-places.json
 
 # Don't check in secret files
 *secret.js
