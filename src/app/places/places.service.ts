@@ -44,6 +44,7 @@ export class PlacesService {
         }),
         catchError((error) => {
           // this.userPlaces.set(prevPlaces)
+          console.error(error)
           return throwError(() => new Error('Faild to store selected place.'))
         }),
       )
