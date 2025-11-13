@@ -25,6 +25,10 @@ ul {
   transition: all 0.2s ease-in-out;
 }
 
+.place-item button:hover {
+  cursor: pointer;
+}
+
 .place-item:nth-child(odd) button:hover,
 .place-item:nth-child(odd) button:focus {
   box-shadow: 0 0 8px 4px rgba(255, 217, 0, 0.6);
@@ -47,7 +51,7 @@ ul {
 }
 
 .place-item h3 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: normal;
   font-size: 0.9rem;
   position: absolute;
