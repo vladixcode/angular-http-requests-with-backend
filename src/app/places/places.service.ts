@@ -45,8 +45,8 @@ export class PlacesService {
           next: (resData) => this.userPlaces.set(resData.userPlaces),
         }),
         catchError((error) => {
-          // this.userPlaces.set(prevPlaces)
           console.error(error)
+          // this.userPlaces.set(prevPlaces)
           this.errorService.showError('Failed to store selected place.')
           return throwError(() => new Error('Failed to store selected place.'))
         }),
@@ -54,7 +54,19 @@ export class PlacesService {
   }
 
   removeUserPlace(place: Place) {
-    console.log(place)
+    console.log('removeUserPlace', place)
+    return this.httpClient
+      .delete<{ userPlaces: Place[] }>(`http://localhost:3000/user-places/${place.id}`)
+      .pipe(
+        tap({
+          next: (resData) => this.userPlaces.set(resData.userPlaces),
+        }),
+        catchError((error) => {
+          console.error(error)
+          this.errorService.showError('Failed to DELETE selected place.')
+          return throwError(() => new Error('Failed to DELETE selected place.'))
+        }),
+      )
   }
 
   private fetchPlaces(
