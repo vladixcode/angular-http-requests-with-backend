@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "start:backend": "cd backend/ && npm start",
-    "start:all": "npm start & npm run start:backend"
+    "start:all": "npx --yes npm-run-all -p start start:backend"
   },
   "private": true,
   "dependencies": {
